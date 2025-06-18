@@ -191,6 +191,7 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	base: process.env.NODE_ENV === 'production' ? '/' : '/',
 	server: {
 		port: 8081,
 		https: false,
