@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
-  VITE_BASE_URL = "https://chileaovivo.netlify.app"
+  VITE_BASE_URL = "https://chileaovivo2.netlify.app"
   VITE_SUPABASE_URL = "https://yfgqpaxajeatchcqrehe.supabase.co"
   VITE_SUPABASE_ANON_KEY = "tu-clave-anon-supabase"
   NODE_ENV = "production"
