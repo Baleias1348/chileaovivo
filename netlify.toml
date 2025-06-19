@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build"
+  command = "rm -rf node_modules && npm install && npm run build"
   publish = "dist"
 
 [build.environment]
@@ -10,6 +10,9 @@
   VITE_BASE_URL = "https://chileaovivo2.netlify.app"
   VITE_SUPABASE_URL = "https://yfgqpaxajeatchcqrehe.supabase.co"
   VITE_SUPABASE_ANON_KEY = "tu-clave-anon-supabase"
+
+[context.production.environment]
+  NODE_ENV = "production"
 
 [[redirects]]
   from = "/*"
