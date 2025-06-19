@@ -3,7 +3,21 @@
  * Este archivo se puede ejecutar durante el build o como una ruta de API
  */
 
-const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://tudominio.com';
+// Obtener la URL base del entorno o usar un valor por defecto
+let BASE_URL = 'https://chileaovivo2.netlify.app';
+
+try {
+  // Para entornos de módulos ES (vite)
+  if (import.meta && import.meta.env) {
+    BASE_URL = import.meta.env.VITE_BASE_URL || BASE_URL;
+  }
+  // Para CommonJS (Node.js durante el build)
+  else if (process && process.env) {
+    BASE_URL = process.env.VITE_BASE_URL || process.env.URL || BASE_URL;
+  }
+} catch (e) {
+  console.warn('No se pudo determinar la URL base, usando valor por defecto');
+}
 
 // Datos de ejemplo - reemplazar con datos reales de tu aplicación
 const staticRoutes = [

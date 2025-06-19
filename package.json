@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "vite --config vite.simple.config.js",
-    "presitebuild": "node -e \"import('fs').then(fs => import('path').then(path => { const { generateSitemap } = require('./src/utils/generateSitemap'); fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), generateSitemap()); }))\"",
-    "build": "npm run presitebuild && vite build --config vite.simple.config.js",
+    "presitebuild": "node -e \"import('dotenv/config'); import('fs').then(fs => import('path').then(path => { const { generateSitemap } = require('./src/utils/generateSitemap'); fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), generateSitemap()); }))\"",
+    "build": "cross-env NODE_ENV=production npm run presitebuild && vite build --config vite.simple.config.js",
     "preview": "vite preview --port 8081"
   },
   "dependencies": {
@@ -50,6 +50,8 @@
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0",
     "esbuild": "^0.25.5",
     "eslint": "^8.57.1",
     "eslint-config-react-app": "^7.0.1",
