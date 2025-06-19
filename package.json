@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --config vite.simple.config.js",
-    "presitebuild": "node -e \"process.env.NODE_ENV = 'production'; import('dotenv/config').then(() => import('fs').then(fs => import('path').then(path => { const { generateSitemap } = require('./src/utils/generateSitemap'); fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), generateSitemap()); })))\"",
-    "build": "npm run presitebuild && vite build --config vite.simple.config.js",
+    "build": "vite build --config vite.simple.config.js",
     "preview": "vite preview --port 8081"
   },
   "dependencies": {
